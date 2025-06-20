@@ -28,7 +28,7 @@ export default function SignupPage() {
       if (ok) {
         router.push("/");
       } else {
-        router.push("/auth/login?signup=success");
+        router.push("/auth/login");
       }
     }
   }

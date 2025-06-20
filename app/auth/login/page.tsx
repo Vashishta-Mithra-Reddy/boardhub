@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/auth/AuthContext";
 
 export default function LoginPage() {
@@ -9,8 +9,6 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
-  const params = useSearchParams();
-  const signupSuccess = params.get("signup") === "success";
   const { login, loading } = useAuth();
 
   async function handleSubmit(e: React.FormEvent) {
@@ -31,9 +29,6 @@ export default function LoginPage() {
         className="w-full max-w-sm bg-background border border-foreground/10 rounded-lg p-8 shadow-lg"
       >
         <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
-        {signupSuccess && (
-          <div className="text-green-600 mb-4 text-sm text-center">Signup successful! Please log in.</div>
-        )}
         <input
           type="email"
           placeholder="Email"
